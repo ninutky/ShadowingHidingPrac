@@ -8,6 +8,28 @@ namespace ShadowingHidingPrac
 {
     internal class Program
     {
+        class Animal
+        {
+            public virtual void Eat()
+            {
+                Console.WriteLine("냠냠 먹습니다");
+            }
+        }
+        class Dog : Animal
+        {
+            public new void Eat()
+            {
+                Console.WriteLine("찹찹 먹습니다");
+            }
+        }
+        class Cat : Animal
+        {
+            public override void Eat()
+            {
+                Console.WriteLine("얌얌 먹습니다");
+            }
+        }
+
         class Parent
         {
             public int variable = 273;
@@ -49,6 +71,17 @@ namespace ShadowingHidingPrac
 
             child.Method2();
             parent.Method2();   // 자식 실행
+
+            List<Animal> animals = new List<Animal>()
+            {
+                new Dog(), new Cat(), new Cat(), new Dog(),
+                new Dog(), new Cat(), new Dog(), new Dog(),
+            };
+            foreach (var item in animals)
+            {
+                item.Eat();
+            }
+
         }
     }
 }
