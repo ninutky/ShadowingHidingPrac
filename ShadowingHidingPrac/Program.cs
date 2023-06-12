@@ -15,12 +15,20 @@ namespace ShadowingHidingPrac
             {
                 Console.WriteLine("부모의 메서드");
             }
+            public virtual void Method2() 
+            {
+                Console.WriteLine("부모의 메서드");
+            }
         }
 
         class Child : Parent {
             // 하이딩 할 때 new 연산자 사용
             public new string variable = "shadowing";
             public new void Method()
+            {
+                Console.WriteLine("자식의 메서드");
+            }
+            public override void Method2()
             {
                 Console.WriteLine("자식의 메서드");
             }
@@ -38,6 +46,9 @@ namespace ShadowingHidingPrac
 
             child.Method();
             parent.Method();
+
+            child.Method2();
+            parent.Method2();   // 자식 실행
         }
     }
 }
